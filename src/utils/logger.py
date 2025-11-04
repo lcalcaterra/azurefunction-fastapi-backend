@@ -21,3 +21,10 @@ def get_logger(name: str) -> logging.Logger:
     logger.setLevel(logging.INFO)
 
     return logger
+
+
+def send_logs(logger, level, message):
+    if level == "error":
+        logger.error(message)
+    else:
+        logger.info(message)
