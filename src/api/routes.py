@@ -151,10 +151,9 @@ async def search(search_req: SearchRequest, request: Request):
 
 # App Insights
 @router.post("/logs")
-async def send_to_app_insights(request: LogRequest, message, level = "info"):
-    if not request.log:
-        raise HTTPException(status_code=400, detail="Missing log content")
+async def send_to_app_insights(request: LogRequest):
     try:
-        send_logs(request.log, level, message)
+        send_logs(logger, request.level, request.message)
+        return {"status": "ok"}
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Log sending Failed: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Log sending failed: {str(e)}")

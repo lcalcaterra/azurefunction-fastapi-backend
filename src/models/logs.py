@@ -1,4 +1,5 @@
 from pydantic import BaseModel
 
 class LogRequest(BaseModel):
-    log: str
+    message: str
+    level: str = "info"

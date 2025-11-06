@@ -7,7 +7,7 @@ from src.api.routes import router
 fastapi_app = FastAPI(title="Backend Integration", root_path="/api")
 fastapi_app.include_router(router)
 
-app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
+app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
 
 @app.function_name(name="HttpFunction")

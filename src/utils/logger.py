@@ -24,7 +24,7 @@ def get_logger(name: str) -> logging.Logger:
 
 
 def send_logs(logger, level, message):
-    if level == "error":
+    if level.lower() == "error":
         logger.error(message)
     else:
         logger.info(message)
