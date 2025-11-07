@@ -1,6 +1,6 @@
 import os
 
-from fastapi import APIRouter, Request, UploadFile, File, HTTPException
+from fastapi import APIRouter, Request, UploadFile, File, HTTPException, status
 from fastapi.responses import JSONResponse
 
 from src.db.utils import (
