@@ -2,10 +2,15 @@ import azure.functions as func
 from fastapi import FastAPI
 
 from src.api.routes import router
+# TODO: uncomment when third party auth will be enabled
+# from src.utils.middleware import SWASecurityMiddleware
 
 
 fastapi_app = FastAPI(title="Backend Integration", root_path="/api")
+# TODO: uncomment when third party auth will be enabled
+# fastapi_app.add_middleware(SWASecurityMiddleware)
 fastapi_app.include_router(router)
+
 
 app = func.FunctionApp(http_auth_level=func.AuthLevel.ANONYMOUS)
 
