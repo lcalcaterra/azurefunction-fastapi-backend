@@ -28,7 +28,7 @@ async def stato():
 
 # Elasticsearch
 @router.get("/elastic/status")
-def status():
+def elastic_status():
     return {"elasticsearch_up": is_es_up()}
 
 @router.get("/elastic/index/{index_name}")
